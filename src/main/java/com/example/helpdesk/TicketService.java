@@ -19,6 +19,10 @@ public class TicketService {
 
     public void createNewTicket(int id, User user, Employee employee, Status status) {
         ticketStorage.getTicketList().add(new Ticket(id, user, employee, status));
+        System.out.println("Użytkownik " + user.getName()
+                + " stworzył nowy ticket." + System.lineSeparator()
+                + "Został przydzielony pracownik " + employee.getName()
+                + ".");
     }
 
     public void changeStatus(int id, Status status) {
