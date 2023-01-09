@@ -10,9 +10,7 @@ public class TicketStorage {
     private Ticket alicja = new Ticket(1, new User("Alicja_user"), new Employee("Darek_pracownik"), Status.Open);
     private Ticket patrycja = new Ticket(2, new User("Patrycja_user"), new Employee("Igor_pracownik"), Status.Closed);
 
-
     private List<Ticket> ticketList = new ArrayList<>();
-
 
     public TicketStorage() {
         ticketList.add(alicja);
@@ -22,6 +20,4 @@ public class TicketStorage {
     public List<Ticket> getTicketList() {
         return ticketList;
     }
-
-
 }

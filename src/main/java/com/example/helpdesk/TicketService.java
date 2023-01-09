@@ -6,15 +6,10 @@ import java.util.List;
 
 @Component
 public class TicketService {
-    private TicketStorage ticketStorage;
-
+    private final TicketStorage ticketStorage;
 
     public TicketService(TicketStorage ticketStorage) {
         this.ticketStorage = ticketStorage;
-    }
-
-    public List<Ticket> getAllTickets() {
-        return ticketStorage.getTicketList();
     }
 
     public void createNewTicket(int id, User user, Employee employee, Status status) {
@@ -38,8 +33,5 @@ public class TicketService {
                 ticket.setStatus(status);
             }
         }
-
     }
-
-
 }
