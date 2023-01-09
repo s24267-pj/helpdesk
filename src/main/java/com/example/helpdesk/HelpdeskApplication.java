@@ -11,6 +11,7 @@ public class HelpdeskApplication {
     public HelpdeskApplication(TicketService ticketService) {
         this.ticketService = ticketService;
 
+        ticketService.createNewTicket(new User("Radek_user"), new Employee("Ania_pracownik"), Status.Open);
         System.out.println(ticketService.getAllTickets().toString());
 
     }
