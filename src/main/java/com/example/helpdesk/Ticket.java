@@ -2,12 +2,14 @@ package com.example.helpdesk;
 
 public class Ticket {
     private int id;
-    private String message;
+    private User user;
+    private Employee employee;
     private Status status;
 
-    public Ticket(int id, String message, Status status) {
+    public Ticket(int id, User user, Employee employee, Status status) {
         this.id = id;
-        this.message = message;
+        this.user = user;
+        this.employee = employee;
         this.status = status;
 
     }
@@ -16,8 +18,12 @@ public class Ticket {
         return id;
     }
 
-    public String getMessage() {
-        return message;
+    public User getUser() {
+        return user;
+    }
+
+    public Employee getEmployee() {
+        return employee;
     }
 
     public Status getStatus() {
@@ -28,12 +34,7 @@ public class Ticket {
         this.status = status;
     }
 
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", message='" + message + '\'' +
-                ", status=" + status +
-                '}';
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
 }

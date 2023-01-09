@@ -6,22 +6,32 @@ import java.util.List;
 
 @Component
 public class TicketService {
-    private TicketStorage ticketStorage;
-    private NewTicketStorage newTicketStorage;
+    private final TicketStorage ticketStorage;
 
-    public TicketService(TicketStorage ticketStorage, NewTicketStorage newTicketStorage) {
+    public TicketService(TicketStorage ticketStorage) {
         this.ticketStorage = ticketStorage;
-        this.newTicketStorage = newTicketStorage;
     }
 
-    public List<Ticket> getAllTickets() {
-        return ticketStorage.getTicketList();
+    public void createNewTicket(int id, User user, Employee employee, Status status) {
+        ticketStorage.getTicketList().add(new Ticket(id, user, employee, status));
+        System.out.println("Użytkownik " + user.getName()
+                + " stworzył nowy ticket." + System.lineSeparator()
+                + "Został przydzielony pracownik " + employee.getName()
+                + ".");
     }
 
-    public void createNewTicket(User user, Ticket ticket) {
+    public void changeStatus(int id, Status status) {
+        List<Ticket> ticketList = ticketStorage.getTicketList();
 
-
+        for (Ticket ticket : ticketList) {
+            if (id == ticket.getId()) {
+                System.out.println("Ticket użytkownika " + ticket.getUser().getName()
+                        + ", przypisany do pracownika " + ticket.getEmployee().getName()
+                        + " zmiana statusu z " + ticket.getStatus().toString()
+                        + " na " + status
+                        + ".");
+                ticket.setStatus(status);
+            }
+        }
     }
-
-
 }

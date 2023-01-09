@@ -7,23 +7,17 @@ import java.util.List;
 
 @Component
 public class TicketStorage {
-    private Ticket badAccName = new Ticket(1, "Bad name for my account.", Status.Open);
-    private Ticket notWorking = new Ticket(2, "This doesn't work for me", Status.Open);
-    private Ticket plzHelp = new Ticket(3, "Dunno what I am doing :/", Status.Closed);
-
+    private Ticket alicja = new Ticket(1, new User("Alicja_user"), new Employee("Darek_pracownik"), Status.Open);
+    private Ticket patrycja = new Ticket(2, new User("Patrycja_user"), new Employee("Igor_pracownik"), Status.Closed);
 
     private List<Ticket> ticketList = new ArrayList<>();
 
-
     public TicketStorage() {
-        ticketList.add(badAccName);
-        ticketList.add(notWorking);
-        ticketList.add(plzHelp);
+        ticketList.add(alicja);
+        ticketList.add(patrycja);
     }
 
     public List<Ticket> getTicketList() {
         return ticketList;
     }
-
-
 }
