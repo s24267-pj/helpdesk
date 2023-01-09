@@ -17,8 +17,24 @@ public class TicketService {
         return ticketStorage.getTicketList();
     }
 
-    public void createNewTicket(User user, Employee employee, Status status) {
-        ticketStorage.getTicketList().add(new Ticket(user, employee, status));
+    public void createNewTicket(int id, User user, Employee employee, Status status) {
+        ticketStorage.getTicketList().add(new Ticket(id, user, employee, status));
+    }
+
+    public void changeStatus(int id, Status status) {
+        List<Ticket> ticketList = ticketStorage.getTicketList();
+
+        for (Ticket ticket : ticketList) {
+            if (id == ticket.getId()) {
+                System.out.println("Ticket użytkownika " + ticket.getUser().getName()
+                        + ", przypisany do pracownika " + ticket.getEmployee().getName()
+                        + " zmiana statusu z " + ticket.getStatus().toString()
+                        + " na " + status
+                        + ".");
+                ticket.setStatus(status);
+            }
+        }
+
     }
 
 
