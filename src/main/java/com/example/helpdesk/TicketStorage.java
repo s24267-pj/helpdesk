@@ -14,14 +14,16 @@ public class TicketStorage {
 
     private List<Ticket> ticketList = new ArrayList<>();
 
-    public List<Ticket> getTicketList() {
-        return ticketList;
-    }
 
     public TicketStorage() {
         ticketList.add(badAccName);
         ticketList.add(notWorking);
         ticketList.add(plzHelp);
     }
+
+    public List<Ticket> getTicketList() {
+        return ticketList;
+    }
+
 
 }
